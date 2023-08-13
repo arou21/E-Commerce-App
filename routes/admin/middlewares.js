@@ -7,9 +7,10 @@ module.exports = {
 
       if (!errors.isEmpty()) {
         let data = {};
-        if(dataCb) {
+        if (dataCb) {
           data = await dataCb(req);
         }
+
         return res.send(templateFunc({ errors, ...data }));
       }
 

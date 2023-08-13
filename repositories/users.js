@@ -1,7 +1,7 @@
 const fs = require('fs');
 const crypto = require('crypto');
 const util = require('util');
-const Repository = require ('./repository');
+const Repository = require('./repository');
 
 const scrypt = util.promisify(crypto.scrypt);
 
@@ -14,6 +14,7 @@ class UsersRepository extends Repository {
 
     return hashed === hashedSuppliedBuf.toString('hex');
   }
+
   async create(attrs) {
     attrs.id = this.randomId();
 
@@ -31,7 +32,6 @@ class UsersRepository extends Repository {
 
     return record;
   }
-  
 }
 
 module.exports = new UsersRepository('users.json');
